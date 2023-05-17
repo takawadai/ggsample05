@@ -53,7 +53,7 @@ int GgApp::main(int argc, const char* const* argv)
 
   // 頂点配列オブジェクトの作成
   const auto vao{ createObject(vertices, p0, lines, e) };
-  //const auto vio{ createObject(vertices, p1, lines, e) };
+ 
   GLuint p1Buf;
   glGenBuffers(1, &p1Buf);
   glBindBuffer(GL_ARRAY_BUFFER, p1Buf);
