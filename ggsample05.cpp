@@ -53,6 +53,7 @@ int GgApp::main(int argc, const char* const* argv)
 
   // 頂点配列オブジェクトの作成
   const auto vao{ createObject(vertices, p0, lines, e) };
+  const auto vio{ createObject(vertices, p1, lines, e) };
 
   // 平行移動の経路
   static const float route[][3]
