@@ -1,6 +1,7 @@
 ﻿//
 // ゲームグラフィックス特論宿題アプリケーション
 //
+//参照：第9章，形状の変形（ggbook05.pdf)
 #include "GgApp.h"
 
 // プロジェクト名
@@ -53,12 +54,14 @@ int GgApp::main(int argc, const char* const* argv)
 
   // 頂点配列オブジェクトの作成
   const auto vao{ createObject(vertices, p0, lines, e) };
- 
+
+  //p0バッファオブジェクトの作成
   GLuint p1Buf;
   glGenBuffers(1, &p1Buf);
   glBindBuffer(GL_ARRAY_BUFFER, p1Buf);
   glBufferData(GL_ARRAY_BUFFER, sizeof (GLfloat[3]) * vertices, p1, GL_STATIC_DRAW);
 
+  //変数p1のインデックス検索
   GLint p1Loc = glGetAttribLocation(program, "p1");
 
   // 平行移動の経路
