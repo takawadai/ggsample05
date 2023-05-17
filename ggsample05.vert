@@ -1,4 +1,5 @@
 #version 410 core
+//参照：第9章，形状の変形（ggbook05.pdf)
 
 in vec4 p0, p1;
 uniform float t;
