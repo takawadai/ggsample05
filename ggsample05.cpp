@@ -57,7 +57,10 @@ int GgApp::main(int argc, const char* const* argv)
   GLuint p1Buf;
   glGenBuffers(1, &p1Buf);
   glBindBuffer(GL_ARRAY_BUFFER, p1Buf);
-   glBufferData(GL_ARRAY_BUFFER, sizeof (GLfloat[3]) * vertices, p1, GL_STATIC_DRAW); 
+  glBufferData(GL_ARRAY_BUFFER, sizeof (GLfloat[3]) * vertices, p1, GL_STATIC_DRAW);
+
+  GLint p1Loc = glGetAttribLocation(program, "p1");
+
   // 平行移動の経路
   static const float route[][3]
   {
@@ -132,7 +135,9 @@ int GgApp::main(int argc, const char* const* argv)
     glBindVertexArray(vao);
 
     //頂点バッファオブジェクトをin変数から参照できるようにする
-
+    glBindBuffer(GL_ARRAY_BUFFER, p1Buf);
+    glVertexAttribPointer(p1Loc, 3, GL_FLOAT, GL_FALSE, 0, 0); 
+    glEnableVertexAttribArray(p1Loc);
 
     // 図形の描画
     glDrawElements(GL_LINES, lines, GL_UNSIGNED_INT, 0);
